@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="StarterApp">
+<head>
+    <title>Angular Material - Starter App</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/app.css"/>
+</head>
+
+<body layout="column" listview>
+<md-toolbar layout="row">
+    <div class="md-toolbar-tools">
+        <h1>Toolbar</h1>
+    </div>
+</md-toolbar>
+<md-content >
+    <div layout="row" class="md-toolbar-tools">
+        <div flex="30">
+            Name
+        </div>
+        <div flex="10">
+            Code
+        </div>
+        <div flex="30">
+            Description
+        </div>
+        <div flex="30">
+            Completion Date
+        </div>
+    </div>
+    <div layout="row" layout-wrap ng-repeat="result in results track by $index" ng-click="indices.current = $index; toggle = !toggle">
+        <div flex="30" ng-bind="result.NAME">
+        </div>
+        <div flex="10" ng-bind="result.CODE">
+        </div>
+        <div flex="30" ng-bind="result.DESC" contentEditable="true">
+        </div>
+        <div flex="30" ng-bind="result.CD" contentEditable="true">
+        </div>
+
+        <div flex="100" ng-show="indices.current == $index && toggle">
+            <img src="http://upload.wikimedia.org/wikipedia/de/thumb/3/33/NetzplanBsp.png/800px-NetzplanBsp.png"
+                 alt="Not Found"/>
+        </div>
+    </div>
+</md-content>
+
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+<script src="./src/app.js"></script>
+
+</body>
+</html>
